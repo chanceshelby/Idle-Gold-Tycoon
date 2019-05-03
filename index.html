@@ -1,66 +1,134 @@
-<html>
-
-<head>
-    <title>Chance Clicker</title>
-</head>
-
-<body>
 <style>
-.button {
-	background: url(chance.png);
-}
+	button {
+		background-color: #ccc;
+		width: 150px;
+	}
+	a {
+		color: #141414;
+		text-decoration: none;
+	}
 </style>
-
-<font face="times">
-<center>
-<br><br>
-<br><br>
-<br><br>
-
-<body bgcolor=”blue”>
-
+<center> <font face="arial"> <!--<body background="bg.jpg"> -->
 <script>
-function clickCounter() {
-    if(typeof(Storage) !== "undefined") {
-        if (localStorage.clickcount) {
-            localStorage.clickcount = Number(localStorage.clickcount)+1;
-		  if (localStorage.clickcount >= 100) {
-			localStorage.clickcount = Number(localStorage.clickcount)+1;
-			}
-			if (localStorage.clickcount >= 500) {
-			localStorage.clickcount = Number(localStorage.clickcount)+1;
-			}
-			if (localStorage.clickcount >= 1000) {
-			localStorage.clickcount = Number(localStorage.clickcount)+2;
-			}
-			if (localStorage.clickcount >= 4000) {
-			localStorage.clickcount = Number(localStorage.clickcount)+4;
-			}
-        } else {
-            localStorage.clickcount = 1;
-        }
-        document.getElementById("result").innerHTML = "<h1>" + localStorage.clickcount + " chances";
-    } else {
-        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+    function update() {
+        document.getElementById('text').value = cookiecount;
+        document.title = cookiecount + " Cookies";
+        
+        document.getElementById('ammountMultiplier').innerHTML = "Multiplier Upgrade x" + (multiplier+1);
+        document.getElementById('ammountMultiplier2').innerHTML = "x" + (multiplier+1);
+        document.getElementById('costMultiplier').innerHTML = ((multiplier+1) * 100) + " Gold";
+        document.getElementById('currentMultiplier').innerHTML = "Your current Multiplier is x" + (multiplier);
+        
+        document.getElementById('ammountAutoClick').innerHTML = "You Own " + autoClick + " Auto Clickers";
+        document.getElementById('costAutoClick').innerHTML = ((autoClick+1) * 12) + " Gold";
+        
+        document.getElementById('ammountFarms').innerHTML = "You Own " + farms + " Farms";
+        document.getElementById('costFarms').innerHTML = ((farms+1) * 15) + " Gold";
+        
+        document.getElementById('cookiespersecond').innerHTML = "You are gaining " + (((autoClick)+(farms*2))*multiplier) + " Gold per/s";
     }
-}
+    
+    var multiplier = 1;
+    var cookiecount = 0;
+    var autoClick = 0;
+    var farms = 0;
+    
+    function timer() {
+        cookiecount = cookiecount + autoClick*multiplier;
+        cookiecount = cookiecount + farms*2*multiplier;
+        update()
+    }
+    setInterval(timer, 1000)
 </script>
-</head>
+<html>
+<head><title>0 Gold</title></head>
 <body>
-	<style>
-		.button {
-			width: 15%;
-		}
-		</style>
-<p><input type="image" src="chance.png" onclick="clickCounter()" type="button" class="button"><h1></button></p></h1>
-<font color="#fff">
-<div id="result"></div>
+
+    <p id="cookiespersecond">You are gaining 0 Gold per/s</p>
+    
+    <a href=# onclick="add()"><img src="gold_coin.png" width="90px"></a>
+    <br><br>
+    You got: 
+    <input type="text" id="text" disabled style= text-align:center value=0>
+    <script>
+    function add() {
+        cookiecount = cookiecount + 1
+        update()
+    }
+    </script>
+     Cookies
+    <br><br>
+    
+    <button><a href="#" onClick="save()">Save</a></button>
+    <button><a href="#" onclick="load()">Load</a></button>
+    <br><br>
 	
-
-</body></html>
-
-
-    <div>
-<div>
-
-
+	<hr>
+    
+    <p id="ammountMultiplier">Multiplier Upgrade x2</p>
+    <button><a href="#" onClick="buyMultiplier()"><span id="ammountMultiplier2">x2</span></a></button>
+    <p id="costMultiplier">200 Gold</p>
+    <p id="currentMultiplier">Your current Multiplier is x1</p>
+    <br>
+	
+	<hr>
+    
+    <p>Buy 1 Auto Clicker</p>
+    <button><a href="#" onClick="buyAutoClick()"><img src=auto_clicker.png width="80px"></a></button>
+    <p id="costAutoClick">12 Gold</p>
+    <p id="ammountAutoClick">You Own 0 Auto Clickers</p>
+    
+    <br>
+	
+	<hr>
+    
+    <p>Buy 1 Farm</p>
+    <button><a href="#" onClick="buyFarm()"><img src="farm.png" width="80px" height="70px"></a></button>
+    <p id="costFarms">15 Gold</p>
+    <p id="ammountFarms">You Own 0 Farms</p>
+    
+    <script>
+    function save() {
+        localStorage.setItem("cookiecount", cookiecount);
+        localStorage.setItem("autoClick", autoClick);
+        localStorage.setItem("farms", farms);
+        localStorage.setItem("multiplier", multiplier);
+    }
+    function load() {
+        cookiecount = localStorage.getItem("cookiecount");
+        cookiecount = parseInt(cookiecount);
+        autoClick = localStorage.getItem("autoClick");
+        autoClick = parseInt(autoClick);
+        farms = localStorage.getItem("farms");
+        farms = parseInt(farms);
+        multiplier = localStorage.getItem("multiplier");
+        multiplier = parseInt(multiplier);        
+        update()
+    }
+        
+    function buyAutoClick() {
+        if (cookiecount >= ((autoClick+1) * 12)) {
+            cookiecount = cookiecount - ((autoClick+1) * 12);
+            autoClick = autoClick + 1;
+            update()
+        }
+    }
+        
+    function buyFarm() {
+        if (cookiecount >= ((farms+1) * 15)) {
+            cookiecount = cookiecount - ((farms+1) * 15);
+            farms = farms + 1;
+            update()
+        }
+    }
+    
+    function buyMultiplier() {
+        if (cookiecount >= ((multiplier+1) * 100)) {
+            cookiecount = cookiecount - ((multiplier+1) * 50);
+            multiplier = multiplier + 1;
+            update()
+        }
+    }
+    </script>
+</body>
+</html>
