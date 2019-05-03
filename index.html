@@ -1,10 +1,10 @@
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 
-<center> <font face="arial"> <!--<body background="bg.jpg"> -->
+<center> <font face="arial"> 
+	<h1>Idle Gold Tycoon</h1>
 <script>
     function update() {
         document.getElementById('text').value = cookiecount;
-        document.title = cookiecount + " Cookies";
+        document.title = cookiecount + " Gold";
         
         document.getElementById('ammountMultiplier').innerHTML = "Multiplier Upgrade x" + (multiplier+1);
         document.getElementById('ammountMultiplier2').innerHTML = "x" + (multiplier+1);
@@ -33,14 +33,14 @@
     setInterval(timer, 1000)
 </script>
 <html>
-<head><title>Idle Gold Tycoon</title></head>
+<head><title>0 Gold</title></head>
 <body>
 
     <p id="cookiespersecond">You are gaining 0 Gold per/s</p>
     
     <a href=# onclick="add()"><img src="gold_coin.png" width="90px"></a>
     <br><br>
-    You got: 
+    You have: 
     <input type="text" id="text" disabled style= text-align:center value=0>
     <script>
     function add() {
@@ -66,7 +66,7 @@
 	<hr>
     
     <p>Buy 1 Auto Clicker</p>
-    <button><a href="#" onClick="buyAutoClick()"><img src=auto_clicker.png width="80px" height="80px"></a></button>
+    <input type="image" src="auto_clicker.png" width="80px" onClick="buyAutoClick()">
     <p id="costAutoClick">12 Gold</p>
     <p id="ammountAutoClick">You Own 0 Auto Clickers</p>
     
@@ -75,7 +75,7 @@
 	<hr>
     
     <p>Buy 1 Farm</p>
-    <button><a href="#" onClick="buyFarm()"><img src="farm.png" width="80px" height="70px"></a></button>
+    <input type="image" src="farm.png" width="100px" height="80px" onClick="buyFarm()">
     <p id="costFarms">15 Gold</p>
     <p id="ammountFarms">You Own 0 Farms</p>
     
@@ -124,3 +124,5 @@
     </script>
 </body>
 </html>
+	
+	<small>Created by Chance Shelby</small>
