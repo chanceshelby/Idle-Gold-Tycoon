@@ -5,7 +5,7 @@
 	</style>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 <center> <font face="arial"> 
-	<div id="title"><h1><font color="#fff">Idle G<font color="#ffd74a">o</font><font color="#fff">ld Tycoon</h1></font></div>
+	<div id="title"><h1><font color="#fff">Idle G<font color="#ffd74a">o</font><font color="#fff">ld Tyc<font color="#ffd74a">oo</font><font color="#fff">n</h1></font></div>
 	
 	<font color="#000">
 <script>
@@ -55,7 +55,7 @@
 
     <p id="cookiespersecond">0 Gold per/s</p>
     
-    <a href=# onclick="add()"><img src="coinn.png" width="140px"></a>
+    <a href=# onclick="add()"><img src="coinn.png" width="150px"></a>
     <br><br>
     You have 
     <input type="text" id="text" style= text-align:center;color:#000;border:none;font-family:arial;font-size:13px; value=0>
@@ -71,7 +71,7 @@
 	<hr>
     
     <b><p id="ammountMultiplier">Multiplier Upgrade x2</p></b>
-    <button><a href="#" onClick="buyMultiplier()"><span id="ammountMultiplier2">x2</span></a></button>
+    <button style="background-color:gold;none;border: 2px solid black"><a href="#" style="text-decoration:none;font-size:18px;color: black;" onClick="buyMultiplier()"><span id="ammountMultiplier2">x2</span></a></button>
     <p id="costMultiplier">200 Gold</p>
     <p id="currentMultiplier">Your current Multiplier is x1</p>
     <br>
@@ -79,7 +79,7 @@
 	<hr>
     
     <b><p>Buy Auto Clicker</p></b>
-    <input type="image" src="auto_clicker.png" width="100px" onClick="buyAutoClick()">
+    <input type="image" src="auto_clicker.png" width="110px" onClick="buyAutoClick()">
     <p id="costAutoClick">12 Gold</p>
     <p id="ammountAutoClick">You Own 0 Auto Clickers</p>
     
@@ -98,6 +98,9 @@
     <input type="image" src="market.png" width="150px" onClick="buyMarket()">
     <p id="costMarket">50 Gold</p>
     <p id="ammountMarket">You Own 0 Supermarkets</p>
+    
+	<br>
+	<hr>
 	
 	<br>
 	<hr>
@@ -108,8 +111,8 @@
     
 	<br>
 	<hr>
-	    <button><a href="#" onClick="save()">Save</a></button>
-    <button><a href="#" onclick="load()">Load</a></button>
+	    <button style="background-color:gold;none;border: 2px solid black"><a href="#" style="text-decoration:none;font-size:18px;color:black;" onClick="save()">Save</a></button>
+    <button style="background-color:gold;none;border: 2px solid black"><a href="#" style="text-decoration:none;font-size:18px;color: black;" onclick="load()">Load</a></button>
     <script>
     function save() {
         localStorage.setItem("cookiecount", cookiecount);
@@ -177,4 +180,4 @@
 </body>
 </html>
 	
-	<small> | Created by Chance Shelby</small>
+	<small>Created by Chance Shelby</small>
