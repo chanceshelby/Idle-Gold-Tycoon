@@ -30,7 +30,7 @@
         document.getElementById('ammountWaterPark').innerHTML = "You Own " + wpark + " Water Parks";
         document.getElementById('costWaterPark').innerHTML = ((wpark+1) * 200) + " Gold";
         
-        document.getElementById('cookiespersecond').innerHTML = (((autoClick)+(farms*2)+(wpark*4)(market*3))*multiplier) + " Gold per/s";
+        document.getElementById('cookiespersecond').innerHTML = (((autoClick)+(farms*2)+(wpark*4)+(market*3))*multiplier) + " Gold per/s";
     }
     
     var multiplier = 1;
@@ -55,7 +55,7 @@
 
     <p id="cookiespersecond">0 Gold per/s</p>
     
-    <a href=# onclick="add()"><img src="coinn.png" width="150px"></a>
+    <a href=# onclick="add()"><img src="gold_coin.png" width="110px"></a>
     <br><br>
     You have 
     <input type="text" id="text" style= text-align:center;color:#000;border:none;font-family:arial;font-size:13px; value=0>
@@ -79,7 +79,7 @@
 	<hr>
     
     <b><p>Buy Auto Clicker</p></b>
-    <input type="image" src="auto_clicker.png" width="110px" onClick="buyAutoClick()">
+    <input type="image" src="auto_clicker.png" width="80px" onClick="buyAutoClick()">
     <p id="costAutoClick">12 Gold</p>
     <p id="ammountAutoClick">You Own 0 Auto Clickers</p>
     
@@ -99,9 +99,6 @@
     <p id="costMarket">50 Gold</p>
     <p id="ammountMarket">You Own 0 Supermarkets</p>
     
-	<br>
-	<hr>
-	
 	<br>
 	<hr>
     <b><p>Buy Water Park</p></b>
@@ -180,4 +177,4 @@
 </body>
 </html>
 	
-	<small>Created by Chance Shelby</small>
+	<small> | Created by Chance Shelby</small>
