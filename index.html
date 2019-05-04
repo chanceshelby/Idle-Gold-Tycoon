@@ -1,6 +1,7 @@
+
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 <center> <font face="arial"> 
-	<h1>Idle Gold Tycoon</h1>
+	<h1><font color="blue">Idle </font><font color="goldenrod">Gold</font><br><font color="green">Tycoon</h1></font>
 <script>
     function update() {
         document.getElementById('text').value = cookiecount;
@@ -20,7 +21,7 @@
         document.getElementById('ammountMarket').innerHTML = "You Own " + market + " Supermarkets";
         document.getElementById('costMarket').innerHTML = ((market+1) * 50) + " Gold";
         
-        document.getElementById('cookiespersecond').innerHTML = "You are gaining " + (((autoClick)+(farms*2)+(market*2))*multiplier) + " Gold per/s";
+        document.getElementById('cookiespersecond').innerHTML = (((autoClick)+(farms*2)+(market*2))*multiplier) + " Gold per/s";
     }
     
     var multiplier = 1;
@@ -38,15 +39,15 @@
     setInterval(timer, 1000)
 </script>
 <html>
-<head><title>0 Gold</title></head>
+<head><title>Idle Gold Tycoon</title></head>
 <body>
 
-    <p id="cookiespersecond">You are gaining 0 Gold per/s</p>
+    <p id="cookiespersecond">0 Gold per/s</p>
     
-    <a href=# onclick="add()"><img src="gold_coin.png" width="90px"></a>
+    <a href=# onclick="add()"><img src="gold_coin.png" width="110px"></a>
     <br><br>
-    You have: 
-    <input type="text" id="text" disabled style= text-align:center;color:#000;border:none;font-family:arial; value=0>
+    You have 
+    <input type="text" id="text" style= text-align:center;color:#000;border:none;font-family:arial;font-size:13px; value=0>
     <script>
     function add() {
         cookiecount = cookiecount + 1
@@ -58,7 +59,7 @@
 	
 	<hr>
     
-    <p id="ammountMultiplier">Multiplier Upgrade x2</p>
+    <b><p id="ammountMultiplier">Multiplier Upgrade x2</p></b>
     <button><a href="#" onClick="buyMultiplier()"><span id="ammountMultiplier2">x2</span></a></button>
     <p id="costMultiplier">200 Gold</p>
     <p id="currentMultiplier">Your current Multiplier is x1</p>
@@ -66,7 +67,7 @@
 	
 	<hr>
     
-    <p>Buy 1 Auto Clicker</p>
+    <b><p>Buy Auto Clicker</p></b>
     <input type="image" src="auto_clicker.png" width="80px" onClick="buyAutoClick()">
     <p id="costAutoClick">12 Gold</p>
     <p id="ammountAutoClick">You Own 0 Auto Clickers</p>
@@ -75,14 +76,14 @@
 	
 	<hr>
     
-    <p>Buy 1 Farm</p>
+    <b><p>Buy Farm</p></b>
     <input type="image" src="farm.png" width="150px" onClick="buyFarm()">
     <p id="costFarms">15 Gold</p>
     <p id="ammountFarms">You Own 0 Farms</p>
 	
 	<br>
 	<hr>
-    <p>Buy 1 Supermarket</p>
+    <b><p>Buy Supermarket</p></b>
     <input type="image" src="market.png" width="150px" onClick="buyMarket()">
     <p id="costMarket">50 Gold</p>
     <p id="ammountMarket">You Own 0 Supermarkets</p>
