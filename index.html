@@ -26,8 +26,11 @@
 		
         document.getElementById('ammountMarket').innerHTML = "You Own " + market + " Supermarkets";
         document.getElementById('costMarket').innerHTML = ((market+1) * 50) + " Gold";
+		
+        document.getElementById('ammountWaterPark').innerHTML = "You Own " + wpark + " Water Parks";
+        document.getElementById('costWaterPark').innerHTML = ((wpark+1) * 200) + " Gold";
         
-        document.getElementById('cookiespersecond').innerHTML = (((autoClick)+(farms*2)+(market*2))*multiplier) + " Gold per/s";
+        document.getElementById('cookiespersecond').innerHTML = (((autoClick)+(farms*2)+(wpark*4)(market*3))*multiplier) + " Gold per/s";
     }
     
     var multiplier = 1;
@@ -35,11 +38,13 @@
     var autoClick = 0;
     var farms = 0;
 	var market = 0;
+	var wpark = 0;
     
     function timer() {
         cookiecount = cookiecount + autoClick*multiplier;
         cookiecount = cookiecount + farms*2*multiplier;
-        cookiecount = cookiecount + market*multiplier;
+        cookiecount = cookiecount + market*3*multiplier;
+		cookiecount = cookiecount + wpark*4*multiplier;
         update()
     }
     setInterval(timer, 1000)
@@ -96,6 +101,16 @@
     
 	<br>
 	<hr>
+	
+	<br>
+	<hr>
+    <b><p>Buy Water Park</p></b>
+    <input type="image" src="waterpark.png" width="150px" onClick="buywpark()">
+    <p id="costWaterPark">200 Gold</p>
+    <p id="ammountWaterPark">You Own 0 Water Parks</p>
+    
+	<br>
+	<hr>
 	    <button><a href="#" onClick="save()">Save</a></button>
     <button><a href="#" onclick="load()">Load</a></button>
     <script>
@@ -104,6 +119,7 @@
         localStorage.setItem("autoClick", autoClick);
         localStorage.setItem("farms", farms);
 		localStorage.setItem("market", market);
+		localStorage.setItem("wpark", wpark);
         localStorage.setItem("multiplier", multiplier);
     }
     function load() {
@@ -115,6 +131,8 @@
         farms = parseInt(farms);
         market = localStorage.getItem("market");
         market = parseInt(market);
+        wpark = localStorage.getItem("wpark");
+        wpark = parseInt(wpark);
         multiplier = localStorage.getItem("multiplier");
         multiplier = parseInt(multiplier);        
         update()
@@ -151,8 +169,15 @@
             update()
         }
     }
+    function buywpark() {
+        if (cookiecount >= ((wpark+1) * 200)) {
+            cookiecount = cookiecount - ((wpark+1) * 100);
+            wpark = wpark + 1;
+            update()
+        }
+    }
     </script>
 </body>
 </html>
 	
-	<small>Created by Chance Shelby</small>
+	<small> | Created by Chance Shelby</small>
