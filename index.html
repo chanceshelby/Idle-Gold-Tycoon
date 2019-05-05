@@ -29,10 +29,13 @@
 		
         document.getElementById('ammountWaterPark').innerHTML = "You Own " + wpark + " Water Parks";
         document.getElementById('costWaterPark').innerHTML = ((wpark+1) * 200) + " Gold";
-        
-        document.getElementById('cookiespersecond').innerHTML = (((autoClick)+(farms*2)+(wpark*4)+(market*3))*multiplier) + " Gold per/s";
 		
-		document.getElementById('level').innerHTML =  "Level " + (((multiplier/10)));
+        document.getElementById('ammountBank').innerHTML = "You Own " + bank + " Banks";
+        document.getElementById('costBank').innerHTML = ((bank+1) * 200) + " Gold";
+        
+        document.getElementById('cookiespersecond').innerHTML = (((autoClick)+(farms*2)+(wpark*4)+(bank*5)+(market*3))*multiplier) + " Gold per/s";
+		
+		document.getElementById('level').innerHTML =  "Level " + (((multiplier/20)));
     }
     
     var multiplier = 1;
@@ -41,12 +44,14 @@
     var farms = 0;
 	var market = 0;
 	var wpark = 0;
+	var bank = 0;
     
     function timer() {
         cookiecount = cookiecount + autoClick*multiplier;
         cookiecount = cookiecount + farms*2*multiplier;
         cookiecount = cookiecount + market*3*multiplier;
 		cookiecount = cookiecount + wpark*4*multiplier;
+		cookiecount = cookiecount + bank*5*multiplier;
         update()
     }
     setInterval(timer, 1000)
@@ -86,30 +91,38 @@
     <b><p>Buy Auto Clicker</p></b>
     <input type="image" src="auto_clicker.png" width="110px" onClick="buyAutoClick()">
     <p id="costAutoClick">12 Gold</p>
-    <p id="ammountAutoClick">You Own 0 Auto Clickers</p>
+    <p id="ammountAutoClick">You Own 0 Auto Clicker(s)</p>
     
     <br>
 	
 	<hr>
     
     <b><p>Buy Farm</p></b>
-    <input type="image" src="farm.png" width="150px" onClick="buyFarm()">
+    <input type="image" src="farm.png" width="150px" style="border:3px solid #000" onClick="buyFarm()">
     <p id="costFarms">15 Gold</p>
     <p id="ammountFarms">You Own 0 Farms</p>
 	
 	<br>
 	<hr>
     <b><p>Buy Supermarket</p></b>
-    <input type="image" src="market.png" width="150px" onClick="buyMarket()">
+    <input type="image" src="market.png" width="150px" style="border:3px solid #000" onClick="buyMarket()">
     <p id="costMarket">50 Gold</p>
     <p id="ammountMarket">You Own 0 Supermarkets</p>
     
 	<br>
 	<hr>
     <b><p>Buy Water Park</p></b>
-    <input type="image" src="waterpark.png" width="150px" onClick="buywpark()">
+    <input type="image" src="waterpark.png" width="150px" style="border:3px solid #000" onClick="buywpark()">
     <p id="costWaterPark">200 Gold</p>
     <p id="ammountWaterPark">You Own 0 Water Parks</p>
+    
+	<br>
+	<hr>
+	
+    <b><p>Buy Bank</p></b>
+    <input type="image" src="bank.png" width="150px" style="border:3px solid #000" onClick="buyBank()">
+    <p id="costBank">500 Gold</p>
+    <p id="ammountBank">You Own 0 Banks</p>
     
 	<br>
 	<hr>
@@ -121,6 +134,7 @@
         localStorage.setItem("farms", farms);
 		localStorage.setItem("market", market);
 		localStorage.setItem("wpark", wpark);
+		localStorage.setItem("bank", bank);
         localStorage.setItem("multiplier", multiplier);
     }
     function load() {
@@ -132,8 +146,10 @@
         farms = parseInt(farms);
         market = localStorage.getItem("market");
         market = parseInt(market);
-        wpark = localStorage.getItem("wpark");
-        wpark = parseInt(wpark);
+        wpark = localStorage.getItem("bank");
+        wpark = parseInt(bank);
+        bank = localStorage.getItem("bank");
+        bank = parseInt(bank);
         multiplier = localStorage.getItem("multiplier");
         multiplier = parseInt(multiplier);        
         update()
@@ -165,15 +181,22 @@
 	
     function buyMarket() {
         if (cookiecount >= ((market+1) * 50)) {
-            cookiecount = cookiecount - ((market+1) * 25);
+            cookiecount = cookiecount - ((market+1) * 50);
             market = market + 1;
             update()
         }
     }
     function buywpark() {
         if (cookiecount >= ((wpark+1) * 200)) {
-            cookiecount = cookiecount - ((wpark+1) * 100);
+            cookiecount = cookiecount - ((wpark+1) * 200);
             wpark = wpark + 1;
+            update()
+        }
+    }
+    function buyBank() {
+        if (cookiecount >= ((bank+1) * 500)) {
+            cookiecount = cookiecount - ((bank+1) * 500);
+            bank = bank + 1;
             update()
         }
     }
