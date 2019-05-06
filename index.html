@@ -1,4 +1,4 @@
-<style>
+<html><head><style>
 #mybar{
     position: fixed;
     top:0;
@@ -7,17 +7,19 @@
     height:110px;
     background-color: #000;
 }
+hr {
+ color: #000;
+ border: 2px solid #000;
 </style>
-<body background="bg_click.png">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 <center> <font face="arial"> 
 	
 	<div id="mybar">
 <br>
-	<big><big><big><big><big><big><small><font color="#fff">Idle G<font color="#ffd74a">o</font><font color="#fff">ld Tycoon</small></font></big></big></big></big></big></big>
+	<big><big><big><big><big><big><small><font color="#fff">Idle G<font color="#ffd74a">o</font><font color="#fff">ld Tycoon</font></font></small></big></big></big></big></big></big><font color="#fff">
 <br>
-		<big><small id="level"></small> | <small id="cookiespersecond">0 Gold per/s</small></big>
-	</div>
+		<big><small id="level">Level 0.05</small> | <small id="cookiespersecond">3 Gold per/s</small></big>
+	</font></div><font color="#fff">
 	
 	<font color="#000">
 <script>
@@ -68,15 +70,13 @@
     }
     setInterval(timer, 1000)
 </script>
-<html>
-<head><title>Idle Gold Tycoon</title></head>
 	<br><br><br><br><br><br>
-<body>
+
     
-    <a href=# onclick="add()"><img src="gold_coin.png" width="150px"></a>
+    <a href="#" onclick="add()"><img src="gold_coin.png" width="150px"></a>
     <br><br>
     You have 
-    <input type="text" id="text" style= text-align:center;color:#000;border:none;font-family:arial;font-size:13px; value=0>
+    <input type="text" id="text" style="text-align:center;color:#000;border:none;font-family:arial;font-size:13px;" value="0">
     <script>
     function add() {
         cookiecount = cookiecount + 1
@@ -89,7 +89,7 @@
 	<hr>
     
     <b><p id="ammountMultiplier">Multiplier Upgrade x2</p></b>
-    <button style="background-color:gold;none;border: 2px solid black"><a href="#" style="text-decoration:none;font-size:18px;color: black;" onClick="buyMultiplier()"><span id="ammountMultiplier2">x2</span></a></button>
+    <button style="background-color:gold;none;border: 2px solid black"><a href="#" style="text-decoration:none;font-size:18px;color: black;" onclick="buyMultiplier()"><span id="ammountMultiplier2">x2</span></a></button>
     <p id="costMultiplier">200 Gold</p>
     <p id="currentMultiplier">Your current Multiplier is x1</p>
     <br>
@@ -97,30 +97,30 @@
 	<hr>
     
     <b><p>Buy Auto Clicker</p></b>
-    <input type="image" src="auto_clicker.png" width="110px" onClick="buyAutoClick()">
-    <p id="costAutoClick">12 Gold</p>
-    <p id="ammountAutoClick">You Own 0 Auto Clicker(s)</p>
+    <input type="image" src="auto_clicker.png" width="110px" onclick="buyAutoClick()">
+    <p id="costAutoClick">48 Gold</p>
+    <p id="ammountAutoClick">You Own 3 Auto Clickers</p>
     
     <br>
 	
 	<hr>
     
     <b><p>Buy Farm</p></b>
-    <input type="image" src="farm_upgrade.png" width="150px" style="border:3px solid #000" onClick="buyFarm()">
+    <input type="image" src="farm_upgrade.png" width="150px" style="border:3px solid #000" onclick="buyFarm()">
     <p id="costFarms">15 Gold</p>
     <p id="ammountFarms">You Own 0 Farms</p>
 	
 	<br>
 	<hr>
     <b><p>Buy Supermarket</p></b>
-    <input type="image" src="market.png" width="150px" style="border:3px solid #000" onClick="buyMarket()">
+    <input type="image" src="market.png" width="150px" style="border:3px solid #000" onclick="buyMarket()">
     <p id="costMarket">50 Gold</p>
     <p id="ammountMarket">You Own 0 Supermarkets</p>
     
 	<br>
 	<hr>
     <b><p>Buy Water Park</p></b>
-    <input type="image" src="waterpark.png" width="150px" style="border:3px solid #000" onClick="buywpark()">
+    <input type="image" src="waterpark.png" width="150px" style="border:3px solid #000" onclick="buywpark()">
     <p id="costWaterPark">200 Gold</p>
     <p id="ammountWaterPark">You Own 0 Water Parks</p>
     
@@ -128,13 +128,13 @@
 	<hr>
 	
     <b><p>Buy Bank</p></b>
-    <input type="image" src="bank.png" width="150px" style="border:3px solid #000" onClick="buyBank()">
+    <input type="image" src="bank.png" width="150px" style="border:3px solid #000" onclick="buyBank()">
     <p id="costBank">500 Gold</p>
     <p id="ammountBank">You Own 0 Banks</p>
     
 	<br>
 	<hr>
-	    <button style="background-color:gold;none;border: 2px solid black"><a href="#" style="text-decoration:none;font-size:18px;color:black;" onClick="save()">Save</a></button>
+	    <button style="background-color:gold;none;border: 2px solid black"><a href="#" style="text-decoration:none;font-size:18px;color:black;" onclick="save()">Save</a></button>
     <script>
     function save() {
         localStorage.setItem("cookiecount", cookiecount);
@@ -209,9 +209,10 @@
         }
     }
     </script>
-</body>
-</html>
+
+
 	
 	<small> Created by Chance Shelby</small>
 		
 		    <button style="background-color:gold;none;border: 2px solid black"><a href="#" style="text-decoration:none;font-size:18px;color: black;" onclick="load()">Load</a></button>
+</font></font></font></center></body></html>
