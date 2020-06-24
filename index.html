@@ -1,0 +1,234 @@
+<style>
+#mybar{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:110px;
+    background-color: transparent;
+}
+hr {
+ color: #000;
+ border: 2px solid #000;
+}
+small {
+	font-size: 20px;
+}
+body {
+	background-color: #f7f7f7;
+}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<font face="arial"> 
+
+<title>Idle Gold Tycoon</title>
+	<div id="mybar">
+<br>
+<br> <font face="arial"> <font color="#fff">
+	<small style="background-color:green;padding:5px;font-size:30px" id="cookiecount"></small> <br><br>
+		<small style="background-color:dodgerblue;padding:5px;font-size:30px" id="level"></small><br><br> <small style="background-color:purple;padding:5px;font-size:30px" id="cookiespersecond"></small><br>
+		
+
+			
+			
+			<input type="text" id="text" style="color:transaprent;border:none;font-family:arial;font-size:15px;background-color:transparent;padding:5px;width:0px" value="0"></big>
+		
+	</font></div><font color="#fff">
+	
+	<font color="#000">
+		<font face="arial">
+		<center>
+<script>
+    function update() {
+        document.getElementById('text').value = cookiecount;
+        
+        document.getElementById('ammountMultiplier').innerHTML = "Multiplier Upgrade x" + (multiplier+1);
+        document.getElementById('ammountMultiplier2').innerHTML = "x" + (multiplier+1);
+        document.getElementById('costMultiplier').innerHTML = ((multiplier+1) * 5000) + " Gold";
+        document.getElementById('currentMultiplier').innerHTML = "Your current Multiplier is x" + (multiplier);
+        
+        document.getElementById('ammountAutoClick').innerHTML = "You Own " + autoClick + " Auto Clickers";
+        document.getElementById('costAutoClick').innerHTML = ((autoClick+1) * 50) + " Gold";
+        
+        document.getElementById('ammountFarms').innerHTML = "You Own " + farms + " Farms";
+        document.getElementById('costFarms').innerHTML = ((farms+1) * 200) + " Gold";
+		
+        document.getElementById('ammountMarket').innerHTML = "You Own " + market + " Supermarkets";
+        document.getElementById('costMarket').innerHTML = ((market+1) * 1500) + " Gold";
+		
+        document.getElementById('ammountWaterPark').innerHTML = "You Own " + wpark + " Water Parks";
+        document.getElementById('costWaterPark').innerHTML = ((wpark+1) * 10000) + " Gold";
+		
+        document.getElementById('ammountBank').innerHTML = "You Own " + bank + " Banks";
+        document.getElementById('costBank').innerHTML = ((bank+1) * 50000) + " Gold";
+        
+        document.getElementById('cookiespersecond').innerHTML = " Money/sec $" + (((autoClick)+(farms*2)+(wpark*4)+(bank*5)+(market*3))*multiplier);
+		var property = multiplier + autoClick + farms + market + wpark + bank;
+		var level = property / 50;
+		
+		document.getElementById('level').innerHTML =  "Level " + level.toFixed(0);
+		
+		document.getElementById('cookiecount').innerHTML =  "$" + cookiecount.toFixed(0);
+    }
+    
+    var multiplier = 1;
+    var cookiecount = 0;
+    var autoClick = 0;
+    var farms = 0;
+	var market = 0;
+	var wpark = 0;
+	var bank = 0;
+    
+    function timer() {
+        cookiecount = cookiecount + autoClick*multiplier;
+        cookiecount = cookiecount + farms*2*multiplier;
+        cookiecount = cookiecount + market*3*multiplier;
+		cookiecount = cookiecount + wpark*4*multiplier;
+		cookiecount = cookiecount + bank*5*multiplier;
+        update()
+    }
+    setInterval(timer, 1000)
+</script>
+
+    <br><br>
+    <a id="money" href="#" onclick="add()"><img src="Usdollar100front.jpg" style="border: 3px solid #000;" width="500px"></a>
+    <br>
+    <script>
+    function add() {
+        cookieperclick = cookiecount = cookiecount + 100000000000000 * multiplier;
+        update()
+    }
+    </script>
+    <br><br>
+	
+	<hr>
+    <br>
+    <b><p id="ammountMultiplier">Multiplier Upgrade x2</p></b>
+	<input type="image" src="195-1956808_cancel-icon-icons-matt-symbol-incorrect-sign-hd.png" width="180px" id="ammountMultiplier2" onclick="buyMultiplier()">
+    <p id="costMultiplier">10000 Gold</p>
+    <p id="currentMultiplier">Your current Multiplier is x1</p>
+    <br>
+	
+	<hr>
+    <br>
+    <b><p>Buy Auto Clicker</p></b>
+    <input type="image" style="border:3px solid #000" src="pc-mouse-625152_960_720.jpg" width="300px" onclick="buyAutoClick()">
+    <p id="costAutoClick">50 Gold</p>
+    <p id="ammountAutoClick">You Own 3 Auto Clickers</p>
+    
+    <br>
+	
+	<hr>
+    <br>
+    <b><p>Buy Farm</p></b>
+    <input type="image" src="Farm_Kartoffelfeld_Schweden.jpg" width="300px" style="border:3px solid #000" onclick="buyFarm()">
+    <p id="costFarms">200 Gold</p>
+    <p id="ammountFarms">You Own 0 Farms</p>
+	
+	<br>
+	<hr>
+	<br>
+    <b><p>Buy Supermarket</p></b>
+    <input type="image" src="bunch-of-vegetables.jpg" width="300px" style="border:3px solid #000" onclick="buyMarket()">
+    <p id="costMarket">1500 Gold</p>
+    <p id="ammountMarket">You Own 0 Supermarkets</p>
+    
+	<br>
+	<hr>
+	<br>
+    <b><p>Buy Amusement Park</p></b>
+    <input type="image" src="download.jpeg" width="280px" style="border:3px solid #000" onclick="buywpark()">
+    <p id="costWaterPark">10000 Gold</p>
+    <p id="ammountWaterPark">You Own 0 Water Parks</p>
+    
+	<br>
+	<hr>
+	<br>
+    <b><p>Buy Bank</p></b>
+    <input type="image" src="U.S._National_Bank_Building_-_Portland,_Oregon.jpg" width="300px" style="border:3px solid #000" onclick="buyBank()">
+    <p id="costBank">50000 Gold</p>
+    <p id="ammountBank">You Own 0 Banks</p>
+    
+	<br>
+	<hr>
+	    <button style="background-color:gold;none;border: 2px solid black"><a href="#" style="text-decoration:none;font-size:18px;color:black;" onclick="save()">Save</a></button>
+    <script>
+    function save() {
+        localStorage.setItem("cookiecount", cookiecount);
+        localStorage.setItem("autoClick", autoClick);
+        localStorage.setItem("farms", farms);
+		localStorage.setItem("market", market);
+		localStorage.setItem("wpark", wpark);
+		localStorage.setItem("bank", bank);
+        localStorage.setItem("multiplier", multiplier);
+    }
+    function load() {
+        cookiecount = localStorage.getItem("cookiecount");
+        cookiecount = parseInt(cookiecount);
+        autoClick = localStorage.getItem("autoClick");
+        autoClick = parseInt(autoClick);
+        farms = localStorage.getItem("farms");
+        farms = parseInt(farms);
+        market = localStorage.getItem("market");
+        market = parseInt(market);
+        wpark = localStorage.getItem("bank");
+        wpark = parseInt(bank);
+        bank = localStorage.getItem("bank");
+        bank = parseInt(bank);
+        multiplier = localStorage.getItem("multiplier");
+        multiplier = parseInt(multiplier);        
+        update()
+    }
+        
+    function buyAutoClick() {
+        if (cookiecount >= ((autoClick+1) * 50)) {
+            cookiecount = cookiecount - ((autoClick+1) * 50);
+            autoClick = autoClick + 1;
+            update()
+        }
+    }
+        
+    function buyFarm() {
+        if (cookiecount >= ((farms+1) * 200)) {
+            cookiecount = cookiecount - ((farms+1) * 200);
+            farms = farms + 1;
+            update()
+        }
+    }
+    
+    function buyMultiplier() {
+        if (cookiecount >= ((multiplier+1) * 5000)) {
+            cookiecount = cookiecount - ((multiplier+1) * 5000);
+            multiplier = multiplier + 1;
+            update()
+        }
+    }
+	
+    function buyMarket() {
+        if (cookiecount >= ((market+1) * 1500)) {
+            cookiecount = cookiecount - ((market+1) * 1500);
+            market = market + 1;
+            update()
+        }
+    }
+    function buywpark() {
+        if (cookiecount >= ((wpark+1) * 10000)) {
+            cookiecount = cookiecount - ((wpark+1) * 10000);
+            wpark = wpark + 1;
+            update()
+        }
+    }
+    function buyBank() {
+        if (cookiecount >= ((bank+1) * 50000000)) {
+            cookiecount = cookiecount - ((bank+1) * 50000000);
+            bank = bank + 100;
+            update()
+        }
+    }
+    </script>
+
+
+	
+		
+		    <button style="background-color:gold;none;border: 2px solid black"><a href="#" style="text-decoration:none;font-size:18px;color: black;" onclick="load()">Load</a></button>
+</font></font></font></center></body></html>
