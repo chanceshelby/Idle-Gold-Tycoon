@@ -25,8 +25,8 @@ body {
 	<div id="mybar">
 <br>
 <br> <font face="arial"> <font color="#fff">
-	<small style="background-color:green;padding:5px;font-size:30px" id="cookiecount"></small> <br><br>
-		<small style="background-color:dodgerblue;padding:5px;font-size:30px" id="level"></small><br><br> <small style="background-color:purple;padding:5px;font-size:30px" id="cookiespersecond"></small><br>
+	<small style="background-color:green;padding:5px;font-size:20px" id="cookiecount"></small> <br><br>
+		<small style="background-color:dodgerblue;padding:5px;font-size:20px" id="level"></small><br><br> <small style="background-color:purple;padding:5px;font-size:20px" id="cookiespersecond"></small><br>
 		
 
 			
@@ -89,13 +89,13 @@ body {
     }
     setInterval(timer, 1000)
 </script>
-
+<center>
     <br><br>
-    <a id="money" href="#" onclick="add()"><img src="Usdollar100front.jpg" style="border: 3px solid #000;" width="500px"></a>
+    <a id="money" href="#" onclick="add()"><img src="Usdollar100front.jpg" style="border: 3px solid #000;width:400px" width="500px"></a>
     <br>
     <script>
     function add() {
-        cookieperclick = cookiecount = cookiecount + 100000000000000 * multiplier;
+        cookieperclick = cookiecount = cookiecount + 100 * multiplier;
         update()
     }
     </script>
@@ -112,7 +112,7 @@ body {
 	<hr>
     <br>
     <b><p>Buy Auto Clicker</p></b>
-    <input type="image" style="border:3px solid #000" src="pc-mouse-625152_960_720.jpg" width="300px" onclick="buyAutoClick()">
+    <input type="image" style="border:3px solid #000" src="pc-mouse-625152_960_720.jpg" width="1800px" onclick="buyAutoClick()">
     <p id="costAutoClick">50 Gold</p>
     <p id="ammountAutoClick">You Own 3 Auto Clickers</p>
     
@@ -121,7 +121,7 @@ body {
 	<hr>
     <br>
     <b><p>Buy Farm</p></b>
-    <input type="image" src="Farm_Kartoffelfeld_Schweden.jpg" width="300px" style="border:3px solid #000" onclick="buyFarm()">
+    <input type="image" src="Farm_Kartoffelfeld_Schweden.jpg" width="180px" style="border:3px solid #000" onclick="buyFarm()">
     <p id="costFarms">200 Gold</p>
     <p id="ammountFarms">You Own 0 Farms</p>
 	
@@ -137,7 +137,7 @@ body {
 	<hr>
 	<br>
     <b><p>Buy Amusement Park</p></b>
-    <input type="image" src="download.jpeg" width="280px" style="border:3px solid #000" onclick="buywpark()">
+    <input type="image" src="download.jpeg" width="180px" style="border:3px solid #000" onclick="buywpark()">
     <p id="costWaterPark">10000 Gold</p>
     <p id="ammountWaterPark">You Own 0 Water Parks</p>
     
@@ -145,7 +145,7 @@ body {
 	<hr>
 	<br>
     <b><p>Buy Bank</p></b>
-    <input type="image" src="U.S._National_Bank_Building_-_Portland,_Oregon.jpg" width="300px" style="border:3px solid #000" onclick="buyBank()">
+    <input type="image" src="U.S._National_Bank_Building_-_Portland,_Oregon.jpg" width="180px" style="border:3px solid #000" onclick="buyBank()">
     <p id="costBank">50000 Gold</p>
     <p id="ammountBank">You Own 0 Banks</p>
     
